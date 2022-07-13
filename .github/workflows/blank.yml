@@ -1,10 +1,6 @@
 name: Fast
 
- 
-
 on: [workflow_dispatch] 
-
- 
 
 jobs: 
 
